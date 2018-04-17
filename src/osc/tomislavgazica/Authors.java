@@ -3,8 +3,8 @@ package osc.tomislavgazica;
 public class Authors {
 
     private int _id;
-    private String name;
-    private String surname;
+    private String firstName;
+    private String lastName;
     private int age;
 
     public int get_id() {
@@ -15,20 +15,20 @@ public class Authors {
         this._id = _id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getSurname() {
-        return surname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public int getAge() {
@@ -37,5 +37,20 @@ public class Authors {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public Authors(){}
+
+    public Authors(int _id, String name, String surname, int age) {
+        this._id = _id;
+        this.firstName = name;
+        this.lastName = surname;
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        System.out.println(firstName + " " + lastName + ", age: " + age);
+        return null;
     }
 }
