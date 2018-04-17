@@ -9,7 +9,7 @@ public class News {
     private int _id;
     private String title;
     private Date date;
-    private Authors author;
+    private int author;
     private List<Integer> categoryID = new ArrayList<>();
 
     public int get_id() {
@@ -36,11 +36,11 @@ public class News {
         this.date = date;
     }
 
-    public Authors getAuthor() {
+    public int getAuthor() {
         return author;
     }
 
-    public void setAuthor(Authors author) {
+    public void setAuthor(int author) {
         this.author = author;
     }
 
