@@ -2,7 +2,7 @@ package osc.tomislavgazica;
 
 public class Authors {
 
-    private int _id;
+    private int _id=0;
     private String firstName;
     private String lastName;
     private int age;
@@ -41,11 +41,11 @@ public class Authors {
 
     public Authors(){}
 
-    public Authors(int _id, String name, String surname, int age) {
-        this._id = _id;
+    public Authors(String name, String surname, int age) {
         this.firstName = name;
         this.lastName = surname;
         this.age = age;
+        _id++;
     }
 
     @Override

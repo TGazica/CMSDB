@@ -6,11 +6,11 @@ import java.util.List;
 
 public class News {
 
-    private int _id;
+    private int _id=0;
     private String title;
     private Date date;
-    private int author;
-    private List<Integer> categoryID = new ArrayList<>();
+    private Authors author;
+    private List<Category> category=new ArrayList<>();
 
     public int get_id() {
         return _id;
@@ -36,21 +36,33 @@ public class News {
         this.date = date;
     }
 
-    public int getAuthor() {
+    public Authors getAuthor() {
         return author;
     }
 
-    public void setAuthor(int author) {
+    public void setAuthor(Authors author) {
         this.author = author;
     }
 
-    public List<Integer> getCategory() {
-        return categoryID;
+    public List<Category> getCategory() {
+        return category;
     }
 
-    public void setCategory(List<Integer> categoryID) {
-        this.categoryID = categoryID;
+    public void setCategory(List<Category> category) {
+        this.category = category;
     }
 
+    public News(String title, Date date, Authors author, List<Category> category) {
+        this.title = title;
+        this.date = date;
+        this.author = author;
+        this.category = category;
+        _id++;
+    }
 
+    @Override
+    public String toString() {
+        System.out.println(title + ", date:" + date + ", author:" +  author.getFirstName() + " " + author.getLastName() + ", category:" + category.toString());
+        return null;
+    }
 }

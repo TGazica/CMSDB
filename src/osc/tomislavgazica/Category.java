@@ -20,4 +20,15 @@ public class Category {
     public void setCategory(String category) {
         this.category = category;
     }
+
+    public Category(String category) {
+        this.category = category;
+        _id++;
+    }
+
+    @Override
+    public String toString() {
+        System.out.println(category);
+        return null;
+    }
 }
