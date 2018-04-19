@@ -21,9 +21,13 @@ public class Category {
         this.category = category;
     }
 
+    public Category() {
+    }
+
     public Category(String category) {
         this.category = category;
-        _id++;
+        _id = Main.getCategoryID();
+        Main.setCategoryID(_id + 1);
     }
 
     @Override
