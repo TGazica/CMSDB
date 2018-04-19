@@ -142,6 +142,7 @@ public class Create {
         }
 
         News news = new News(name, new Date(year, month, day), author, category);
+        new Main().addToNews(news);
 
         return news;
     }
