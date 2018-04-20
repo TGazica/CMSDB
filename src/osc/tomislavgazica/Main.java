@@ -181,6 +181,12 @@ public class Main {
             }
 
             System.out.println("Do you wish to exit the application:");
+            System.out.println("1)Yes");
+            System.out.println("2)No");
+            choice=in.nextInt();
+            if (choice==1){
+                break;
+            }
 
         }
 
