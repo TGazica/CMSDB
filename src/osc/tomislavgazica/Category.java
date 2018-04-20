@@ -33,7 +33,15 @@ public class Category {
         Main.setCategoryID(_id + 1);
     }
 
-    public void showCategories(List<Category> categories){
+    @Override
+    public String toString() {
+        return "Category{" +
+                "_id=" + _id +
+                ", category='" + category + '\'' +
+                '}'+ "\n";
+    }
+
+    public static void showCategories(List<Category> categories){
 
         for (Category showCategories: categories) {
             showCategories.toString();
@@ -51,9 +59,4 @@ public class Category {
 
     }
 
-    @Override
-    public String toString() {
-        System.out.print(_id + ": " + category);
-        return null;
-    }
 }

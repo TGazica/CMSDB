@@ -53,7 +53,7 @@ public class Authors {
         Main.setAuthorID(_id + 1);
     }
 
-    public void showAuthors(List<Authors> authors) {
+    public static void showAuthors(List<Authors> authors) {
 
         for (Authors author : authors) {
             author.toString();
@@ -63,13 +63,25 @@ public class Authors {
 
     public void updateAuthor() {
         Scanner in = new Scanner(System.in);
-        int choice;
+        int choice=0;
         String input;
+
 
         while (true) {
 
             System.out.print("What do you wish to update:\n1)First name\n2)Last name\n3)Age\nChoice: ");
-            choice = in.nextInt();
+            try {
+                choice = in.nextInt();
+                if (choice == 1 || choice == 2 || choice == 3) {
+                    break;
+                } else {
+                    System.out.println("Enter 1, 2 or 3");
+                }
+            } catch (Exception e) {
+                System.out.println("Enter 1, 2 or 3");
+                in.next();
+            }
+
 
             switch (choice) {
                 case 1:
@@ -83,7 +95,15 @@ public class Authors {
                     break;
 
                 case 3:
-                    choice = in.nextInt();
+                    while (true) {
+                        try {
+                            choice = in.nextInt();
+                            break;
+                        }catch (Exception e){
+                            System.out.println("Enter a numerical age: ");
+                            in.next();
+                        }
+                    }
                     setAge(choice);
                     break;
 
@@ -103,9 +123,20 @@ public class Authors {
 
     }
 
+    public void setAuthor(Authors author){
+        setFirstName(author.getFirstName());
+        setLastName(author.getLastName());
+        setAge(author.getAge());
+    }
+
+
     @Override
     public String toString() {
-        System.out.println(_id + ": " + firstName + " " + lastName + ", age: " + age);
-        return null;
+        return "Authors{" +
+                "_id=" + _id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                '}'+ "\n";
     }
 }

@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
+import static osc.tomislavgazica.Main.authors;
+
 public class News {
 
     private int _id;
@@ -75,6 +77,13 @@ public class News {
 
     }
 
+    public static void showNews(List<News> news){
+        for (News showNews: news) {
+            System.out.print(showNews.get_id() + ": " + showNews.getTitle());
+        }
+
+    }
+
     public void updateNews() {
         Scanner in = new Scanner(System.in);
         int choice;
@@ -101,15 +110,19 @@ public class News {
                     switch (choice) {
                         case 1:
                             author.updateAuthor();
+                            for (int i = 0; i<authors.size(); i++){
+                                if(authors.get(i).get_id()==author.get_id()){
+                                    authors.get(i).setAuthor(author);
+                                }
+                            }
                             break;
 
                         case 2:
-                            author = GetFromList.getAuthorFromList(Main.authors);
+                            author = GetFromList.getAuthorFromList(authors);
                             break;
 
                         case 3:
                             author = Create.createAuthor();
-                            Main.addToAuthors(author);
                             break;
 
                         default:
@@ -168,7 +181,6 @@ public class News {
                             case 1:
                                 updateCategory = Create.createCategory();
                                 category.add(updateCategory);
-                                Main.addToCategories(updateCategory);
                                 break;
 
                             case 2:
@@ -176,7 +188,7 @@ public class News {
                                 break;
 
                             case 3:
-                                new Category().showCategories(category);
+                                Category.showCategories(category);
                                 System.out.print("Enter category id: ");
                                 choice = in.nextInt();
                                 for (int i = 0; i < category.size(); i++) {
@@ -187,7 +199,7 @@ public class News {
                                 break;
 
                             case 4:
-                                new Category().showCategories(category);
+                                Category.showCategories(category);
                                 System.out.print("Enter category id: ");
                                 choice = in.nextInt();
                                 for (int i = 0; i < category.size(); i++) {
@@ -227,8 +239,12 @@ public class News {
 
     @Override
     public String toString() {
-        System.out.print(_id + ": " + title + ", date:" + date.toString() + ", author:" + author.getFirstName() + " " + author.getLastName() + ", category: ");
-        listNewsCategory();
-        return null;
+        return "News{" +
+                "_id=" + _id +
+                ", title='" + title + '\'' +
+                ", date=" + date +
+                ", author=" + author +
+                ", category=" + category +
+                '}'+ "\n";
     }
 }

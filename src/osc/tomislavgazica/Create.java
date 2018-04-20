@@ -13,6 +13,7 @@ public class Create {
         String firstName = null;
         String lastName = null;
         int age;
+        boolean fromNews=false;
 
         while (firstName == null) {
             System.out.print("Enter authors first name: ");
@@ -117,7 +118,6 @@ public class Create {
 
         if (choice == 1) {
             author = Create.createAuthor();
-            Main.addToAuthors(author);
         } else if (choice == 2) {
             author = GetFromList.getAuthorFromList(authors);
         }
@@ -129,7 +129,6 @@ public class Create {
             choice = in.nextInt();
             if (choice == 1) {
                 addCategory = Create.createCategory();
-                Main.addToCategories(addCategory);
                 category.add(addCategory);
             } else if (choice == 2) {
                 category.add(GetFromList.getCategoryFromList(categories));

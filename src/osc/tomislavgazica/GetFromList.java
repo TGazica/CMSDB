@@ -5,22 +5,24 @@ import java.util.Scanner;
 
 public class GetFromList {
 
-    public static Authors getAuthorFromList(List<Authors> author){
+    public static Authors getAuthorFromList(List<Authors> authors){
 
         Scanner in = new Scanner(System.in);
         int choice;
         Authors getAuthor = new Authors();
+        String print;
 
-        for (Authors authors: author){
-            authors.toString();
+        for (Authors author: authors){
+            print=author.toString();
+            System.out.println(print);
         }
 
         System.out.print("Chose author ID: ");
         choice=in.nextInt();
 
-        for (int i = 0; i< author.size(); i++) {
-            if(author.get(i).get_id()==choice){
-                getAuthor=author.get(i);
+        for (int i = 0; i< authors.size(); i++) {
+            if(authors.get(i).get_id()==choice){
+                getAuthor=authors.get(i);
             }
         }
 
@@ -32,9 +34,11 @@ public class GetFromList {
         Scanner in = new Scanner(System.in);
         int choice;
         Category getCategory = new Category();
+        String print;
 
         for (Category categories: category){
-            categories.toString();
+            print=categories.toString();
+            System.out.println(print);
         }
 
         System.out.print("Chose category ID: ");
@@ -54,9 +58,11 @@ public class GetFromList {
         Scanner in = new Scanner(System.in);
         int choice;
         News getNews = new News();
+        String print;
 
         for (News listNews: News){
-            listNews.toString();
+            print=listNews.toString();
+            System.out.println(print);
         }
 
         System.out.print("Chose news ID: ");
