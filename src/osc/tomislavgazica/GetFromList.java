@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class GetFromList {
 
-    public Authors getAuthorFromList(List<Authors> author){
+    public static Authors getAuthorFromList(List<Authors> author){
 
         Scanner in = new Scanner(System.in);
         int choice;
@@ -27,7 +27,7 @@ public class GetFromList {
         return getAuthor;
     }
 
-    public Category getCategoryFromList(List<Category> category){
+    public static Category getCategoryFromList(List<Category> category){
 
         Scanner in = new Scanner(System.in);
         int choice;
@@ -37,7 +37,7 @@ public class GetFromList {
             categories.toString();
         }
 
-        System.out.print("Chose author ID: ");
+        System.out.print("Chose category ID: ");
         choice=in.nextInt();
 
         for (int i = 0; i< category.size(); i++) {
@@ -49,7 +49,7 @@ public class GetFromList {
         return getCategory;
     }
 
-    public News getNewsFromList(List<News> News){
+    public static News getNewsFromList(List<News> News){
 
         Scanner in = new Scanner(System.in);
         int choice;
@@ -59,7 +59,7 @@ public class GetFromList {
             listNews.toString();
         }
 
-        System.out.print("Chose author ID: ");
+        System.out.print("Chose news ID: ");
         choice=in.nextInt();
 
         for (int i = 0; i< News.size(); i++) {

@@ -89,6 +89,7 @@ public class Authors {
 
                 default:
                     System.out.println("Wrong choice.");
+                    break;
             }
 
             System.out.print("Continue editing: \n1)Yes \n2)No\nChoice: ");

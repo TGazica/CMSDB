@@ -104,12 +104,12 @@ public class News {
                             break;
 
                         case 2:
-                            author = new GetFromList().getAuthorFromList(Main.authors);
+                            author = GetFromList.getAuthorFromList(Main.authors);
                             break;
 
                         case 3:
-                            author = new Create().createAuthor();
-                            new Main().addToAuthors(author);
+                            author = Create.createAuthor();
+                            Main.addToAuthors(author);
                             break;
 
                         default:
@@ -166,13 +166,13 @@ public class News {
 
                         switch (choice) {
                             case 1:
-                                updateCategory = new Create().createCategory();
+                                updateCategory = Create.createCategory();
                                 category.add(updateCategory);
-                                new Main().addToCategories(updateCategory);
+                                Main.addToCategories(updateCategory);
                                 break;
 
                             case 2:
-                                category.add(new GetFromList().getCategoryFromList(Main.categories));
+                                category.add(GetFromList.getCategoryFromList(Main.categories));
                                 break;
 
                             case 3:
@@ -195,26 +195,30 @@ public class News {
                                         category.remove(i);
                                     }
                                 }
-                                System.out.print("Continue editing categories: \n1)Yes\n2)No");
-                                choice = in.nextInt();
-                                if (choice == 1) {
-                                    break;
-                                }
 
-                                break;
 
                             default:
                                 System.out.println("Wrong choice.");
+                                break;
                         }
 
-                        System.out.print("Continue editing this news: \n1)Yes\n2)No");
+                        System.out.print("Continue editing categories: \n1)Yes\n2)No");
                         choice = in.nextInt();
                         if (choice == 1) {
                             break;
                         }
 
                     }
+                default:
+                    System.out.println("Wrong choice");
+                    break;
 
+            }
+
+            System.out.print("Continue editing this news: \n1)Yes\n2)No");
+            choice = in.nextInt();
+            if (choice == 1) {
+                break;
             }
 
         }
@@ -223,7 +227,7 @@ public class News {
 
     @Override
     public String toString() {
-        System.out.print(title + ", date:" + date.toString() + ", author:" + author.getFirstName() + " " + author.getLastName() + ", category: ");
+        System.out.print(_id + ": " + title + ", date:" + date.toString() + ", author:" + author.getFirstName() + " " + author.getLastName() + ", category: ");
         listNewsCategory();
         return null;
     }

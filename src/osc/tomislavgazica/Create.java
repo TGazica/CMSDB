@@ -7,9 +7,9 @@ import java.util.Scanner;
 
 public class Create {
 
-    Scanner in = new Scanner(System.in);
 
-    public Authors createAuthor() {
+    public static Authors createAuthor() {
+        Scanner in = new Scanner(System.in);
         String firstName = null;
         String lastName = null;
         int age;
@@ -38,13 +38,13 @@ public class Create {
 
 
         Authors author = new Authors(firstName, lastName, age);
-        new Main().addToAuthors(author);
+        Main.addToAuthors(author);
 
         return author;
     }
 
-    public Category createCategory() {
-
+    public static Category createCategory() {
+        Scanner in = new Scanner(System.in);
         String categoryName = null;
 
         while (categoryName == null) {
@@ -53,12 +53,12 @@ public class Create {
         }
 
         Category category = new Category(categoryName);
-        new Main().addToCategories(category);
+        Main.addToCategories(category);
 
         return category;
     }
 
-    public News createNews(List<Authors> authors, List<Category> categories) {
+    public static News createNews(List<Authors> authors, List<Category> categories) {
 
         Scanner in = new Scanner(System.in);
         int year;
@@ -116,10 +116,10 @@ public class Create {
 
 
         if (choice == 1) {
-            author = new Create().createAuthor();
-            new Main().addToAuthors(author);
+            author = Create.createAuthor();
+            Main.addToAuthors(author);
         } else if (choice == 2) {
-            author = new GetFromList().getAuthorFromList(authors);
+            author = GetFromList.getAuthorFromList(authors);
         }
 
 
@@ -128,11 +128,11 @@ public class Create {
             System.out.print("1)New category\n2)Existing category\nChoice:");
             choice = in.nextInt();
             if (choice == 1) {
-                addCategory = new Create().createCategory();
-                new Main().addToCategories(addCategory);
+                addCategory = Create.createCategory();
+                Main.addToCategories(addCategory);
                 category.add(addCategory);
             } else if (choice == 2) {
-                category.add(new GetFromList().getCategoryFromList(categories));
+                category.add(GetFromList.getCategoryFromList(categories));
             }
 
             System.out.print("Do you wish to add another category:\n1)Yes\n2)No\nChoice:");
@@ -144,7 +144,7 @@ public class Create {
         }
 
         News news = new News(name, new Date(year, month, day), author, category);
-        new Main().addToNews(news);
+        Main.addToNews(news);
 
         return news;
     }

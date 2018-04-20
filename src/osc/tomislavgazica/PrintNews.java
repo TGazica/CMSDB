@@ -5,36 +5,41 @@ import java.util.List;
 
 public class PrintNews {
 
-    public void printNewsByAuthors(Authors author, List<News> news) {
+    public static void printNewsByAuthors(Authors author, List<News> news) {
 
-        for (News listNews : news) {
+        for (int i = 0; i < news.size(); i++) {
 
-            if (listNews.getAuthor().equals(author)) {
-                listNews.toString();
+            if (author.get_id() == news.get(i).get_id()) {
+                news.get(i).toString();
             }
 
         }
 
     }
 
-    public void printNewsByCategories(Category category, List<News> news) {
-        for (News listNews : news) {
+    public static void printNewsByCategories(Category category, List<News> news) {
 
-            if (listNews.getCategory().equals(category)) {
-                listNews.toString();
+        for (int i = 0; i < news.size(); i++) {
+            for (int j = 0; i<news.get(i).getCategory().size(); j++)
+
+            if (category.get_id() == news.get(i).getCategory().get(j).get_id()) {
+                news.get(i).toString();
             }
 
         }
+
     }
 
-    public void printNewsByDate(Date date, List<News> news) {
 
-        for (News listNews : news) {
+    public static void printNewsByDate(Date date, List<News> news) {
 
-            if (listNews.getDate().equals(date)) {
-                listNews.toString();
+        for (int i = 0; i < news.size(); i++) {
+
+            if (date.equals(news.get(i).getDate())) {
+                news.get(i).toString();
             }
-        }
-    }
 
+        }
+
+    }
 }
