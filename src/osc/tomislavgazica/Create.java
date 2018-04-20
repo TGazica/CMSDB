@@ -38,6 +38,7 @@ public class Create {
 
 
         Authors author = new Authors(firstName, lastName, age);
+        new Main().addToAuthors(author);
 
         return author;
     }
@@ -52,6 +53,7 @@ public class Create {
         }
 
         Category category = new Category(categoryName);
+        new Main().addToCategories(category);
 
         return category;
     }

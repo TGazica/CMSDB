@@ -1,6 +1,7 @@
 package osc.tomislavgazica;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class Category {
 
@@ -40,9 +41,19 @@ public class Category {
 
     }
 
+    public void updateCategory(){
+        Scanner in = new Scanner(System.in);
+        String name;
+
+        System.out.print("Edit category name: ");
+        name=in.nextLine();
+        setCategory(name);
+
+    }
+
     @Override
     public String toString() {
-        System.out.print(category);
+        System.out.print(_id + ": " + category);
         return null;
     }
 }
