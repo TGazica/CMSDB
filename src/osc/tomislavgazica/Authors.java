@@ -1,5 +1,7 @@
 package osc.tomislavgazica;
 
+import java.util.List;
+
 public class Authors {
 
     private int _id;
@@ -50,9 +52,17 @@ public class Authors {
         Main.setAuthorID(_id+1);
     }
 
+    public void showAuthors(List<Authors> authors){
+
+        for (Authors author: authors) {
+            author.toString();
+        }
+
+    }
+
     @Override
     public String toString() {
-        System.out.println("ID:" + _id + ", " + firstName + " " + lastName + ", age: " + age);
+        System.out.println(_id + ": " + firstName + " " + lastName + ", age: " + age);
         return null;
     }
 }

@@ -1,5 +1,7 @@
 package osc.tomislavgazica;
 
+import java.util.List;
+
 public class Category {
 
     private int _id;
@@ -30,9 +32,17 @@ public class Category {
         Main.setCategoryID(_id + 1);
     }
 
+    public void showCategories(List<Category> categories){
+
+        for (Category showCategories: categories) {
+            showCategories.toString();
+        }
+
+    }
+
     @Override
     public String toString() {
-        System.out.println(category);
+        System.out.print(category);
         return null;
     }
 }

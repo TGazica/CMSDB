@@ -52,20 +52,32 @@ public class News {
         this.category = category;
     }
 
-    public News(){}
+    public News() {
+    }
 
     public News(String title, Date date, Authors author, List<Category> category) {
         this.title = title;
         this.date = date;
         this.author = author;
         this.category = category;
-        _id= Main.getNewsID();
-        Main.setNewsID(_id+1);
+        _id = Main.getNewsID();
+        Main.setNewsID(_id + 1);
+    }
+
+    public void listNewsCategory() {
+        for (int i = 0; i < category.size(); i++) {
+            category.get(i).toString();
+            if (i != 0 || i < category.size() - 1) {
+                System.out.print(", ");
+            }
+        }
+
     }
 
     @Override
     public String toString() {
-        System.out.println(title + ", date:" + date + ", author:" + author.getFirstName() + " " + author.getLastName() + ", category:" + category.toString());
+        System.out.print(title + ", date:" + date.toString() + ", author:" + author.getFirstName() + " " + author.getLastName() + ", category: ");
+        listNewsCategory();
         return null;
     }
 }
